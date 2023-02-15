@@ -5,16 +5,21 @@ import lukepicture from '../../images/luke.jpg';
 export function Sidebar() {
   return (
     <div className={sidebar.container}>
-      <header>
-        <div>
+      <div className={sidebar.toggleBtn}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <header className={sidebar.header}>
+        <div className={sidebar.title}>
           <img src={lukepicture} alt="user" />
-          <p> User name from Api .name </p>
-          <p>.surname</p>
+          <p> Luke </p>
+          <p>Skywalker</p>
         </div>
 
         <dl>
           <dt>Fecha de nacimiento</dt>
-          <dd>.</dd>
+          <dd>09/10/89</dd>
           <dt>Cargo</dt>
           <dd>.position</dd>
           <dt>E-mail</dt>
@@ -36,7 +41,13 @@ export function Sidebar() {
           ></input>
         </form>
       </header>
-      <div></div>
+      <div className={sidebar.bottom}>
+        <img
+          src="https://www.cloudmanlabs.com/img/logo_web.svg"
+          alt="cloudmanlabs"
+        ></img>
+        <p>Desarrolado por Sara ✨</p>
+      </div>
     </div>
   );
 }

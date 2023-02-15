@@ -1,12 +1,10 @@
 import React from 'react';
 import { Sidebar } from '../sidebar/sidebar';
-
-import './App.css';
+import app from './App.module.scss';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Working Calendar 2021</h1>
+    <div className={app.container}>
       <Sidebar />
     </div>
   );
