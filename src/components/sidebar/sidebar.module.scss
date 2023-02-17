@@ -1,21 +1,74 @@
 .container {
   background-color: rgb(193, 191, 188);
   width: 250px;
-  height: 100%;
+  height: 100vh;
+  position: absolute;
 
-  position: fixed;
-  left: 0;
   padding: 20px;
   display: flex;
 
   flex-direction: column;
   justify-content: space-between;
+  transition: all 500ms ease-in-out;
 }
+.containerHidden {
+  background-color: rgb(193, 191, 188);
+
+  width: 250px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  display: flex;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: all 500ms ease-in-out;
+}
+.toggleBtn:active {
+  & span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  & span:nth-child(2) {
+    display: none;
+  }
+  & span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
 .toggleBtn {
   position: absolute;
   top: 10px;
+  right: -40px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  & span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #111;
+    transform: translateY(-50%);
+    transition: all 100ms ease;
+  }
+  & span:nth-child(1) {
+    top: 10%;
+  }
+  & span:nth-child(2) {
+    top: 50%;
+  }
+  & span:nth-child(3) {
+    top: 90%;
+  }
 }
 .header {
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 67%;
   & dt,
   p {
     font-weight: bold;
@@ -33,19 +86,57 @@
 .title {
   display: flex;
   flex-direction: row;
+  margin-left: 0;
+
   & p {
+    background-color: aqua;
+    align-self: center;
     font-size: larger;
+    padding: 5px;
+
+    height: fit-content;
   }
   & img {
-    width: 30%;
-    height: 30%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
   }
 }
 .bottom {
+  background-color: antiquewhite;
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  width: fit-content;
+  height: fit-content;
   & img {
+    background-color: aqua;
     align-self: left;
     width: 30%;
-    height: 30%;
+  }
+  & p {
+    background-color: aquamarine;
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    font-size: small;
+  }
+  .title {
+    flex-direction: column;
+    & p {
+      padding-top: 0;
+      margin: 0;
+    }
+    & img {
+      align-self: center;
+      width: 50%;
+      height: 50%;
+    }
   }
 }
