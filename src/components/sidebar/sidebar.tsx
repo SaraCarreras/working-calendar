@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import sidebar from './sidebar.module.scss';
 import lukepicture from '../../images/luke.jpg';
 
 export function Sidebar() {
+  const [sideBar, setSidebar] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebar((prevState) => !prevState);
+  };
+
   return (
-    <div className={sidebar.container}>
-      <div className={sidebar.toggleBtn}>
+    <div className={sideBar ? sidebar.container : sidebar.containerHidden}>
+      <div className={sidebar.toggleBtn} onClick={toggleSidebar}>
         <span></span>
         <span></span>
         <span></span>
@@ -46,7 +52,7 @@ export function Sidebar() {
           src="https://www.cloudmanlabs.com/img/logo_web.svg"
           alt="cloudmanlabs"
         ></img>
-        <p>Desarrolado por Sara ✨</p>
+        <p>Desarrollado por Sara ✨</p>
       </div>
     </div>
   );
