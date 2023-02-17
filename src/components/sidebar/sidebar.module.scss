@@ -1,10 +1,13 @@
+$font-size: 70%;
+$color-button-red: #bf1110;
+$color-text: #ecf0f1;
+$sidebar-background-color: #d3d7ed;
 .container {
-  background-color: rgb(193, 191, 188);
+  background-color: $sidebar-background-color;
   width: 250px;
   height: 100vh;
   position: absolute;
 
-  padding: 20px;
   display: flex;
 
   flex-direction: column;
@@ -12,7 +15,7 @@
   transition: all 500ms ease-in-out;
 }
 .containerHidden {
-  background-color: rgb(193, 191, 188);
+  background-color: $sidebar-background-color;
 
   width: 250px;
   height: 100%;
@@ -20,7 +23,7 @@
   justify-content: space-between;
   position: fixed;
   display: flex;
-  padding: 20px;
+
   transform: translateX(-100%);
   transition: all 500ms ease-in-out;
 }
@@ -64,11 +67,14 @@
   }
 }
 .header {
-  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 67%;
+  justify-content: space-between;
+  height: 70%;
+  margin: 10px;
+  margin-left: 15px;
+  padding: 0;
+
   & dt,
   p {
     font-weight: bold;
@@ -83,10 +89,43 @@
   }
 }
 
+input {
+  align-self: center;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin: 20px 15px;
+  font-size: $font-size;
+  font-weight: 200;
+  border-radius: 15px;
+  transition: 0.5s;
+  border: 2px solid $color-button-red;
+  color: $color-button-red;
+
+  background-color: $sidebar-background-color;
+}
+
+input:hover {
+  cursor: pointer;
+  &::before {
+    border: 0px;
+  }
+  &:hover {
+    background-color: darken($color-button-red, 5%);
+    border: 5px solid lighten($color-button-red, 5%);
+    color: $color-text;
+
+    cursor: pointer;
+  }
+}
+
 .title {
   display: flex;
   flex-direction: row;
   margin-left: 0;
+  width: 100%;
 
   & p {
     background-color: aqua;
@@ -103,20 +142,17 @@
   }
 }
 .bottom {
-  background-color: antiquewhite;
   padding: 0;
   border: 0;
-  margin: 0;
+  margin-left: 15px;
 
   width: fit-content;
   height: fit-content;
   & img {
-    background-color: aqua;
     align-self: left;
     width: 30%;
   }
   & p {
-    background-color: aquamarine;
     margin: 0;
   }
 }
@@ -126,6 +162,7 @@
     height: 100%;
     width: 20%;
     font-size: small;
+    overflow: visible;
   }
   .title {
     flex-direction: column;
@@ -138,5 +175,9 @@
       width: 50%;
       height: 50%;
     }
+  }
+  .input {
+    overflow-y: visible;
+    position: absolute;
   }
 }
