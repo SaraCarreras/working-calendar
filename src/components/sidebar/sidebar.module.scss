@@ -1,4 +1,3 @@
-$font-size: 70%;
 $color-button-red: #bf1110;
 $color-text: #ecf0f1;
 $sidebar-background-color: #d3d7ed;
@@ -16,14 +15,12 @@ $sidebar-background-color: #d3d7ed;
 }
 .containerHidden {
   background-color: $sidebar-background-color;
-
   width: 250px;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
   display: flex;
-
   transform: translateX(-100%);
   transition: all 500ms ease-in-out;
 }
@@ -69,11 +66,14 @@ $sidebar-background-color: #d3d7ed;
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 70%;
+  justify-content: center;
+  height: 77%;
   margin: 10px;
-  margin-left: 15px;
+  margin-left: 20px;
   padding: 0;
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-x: hidden;
 
   & dt,
   p {
@@ -85,7 +85,6 @@ $sidebar-background-color: #d3d7ed;
     margin-left: 0;
     padding-left: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgb(165, 165, 165);
   }
 }
 
@@ -97,7 +96,7 @@ input {
   text-transform: uppercase;
   padding: 5px 10px;
   margin: 20px 15px;
-  font-size: $font-size;
+  font-size: 70%;
   font-weight: 200;
   border-radius: 15px;
   transition: 0.5s;
@@ -124,11 +123,9 @@ input:hover {
 .title {
   display: flex;
   flex-direction: row;
-  margin-left: 0;
-  width: 100%;
+  margin-bottom: 20px;
 
   & p {
-    background-color: aqua;
     align-self: center;
     font-size: larger;
     padding: 5px;
@@ -142,9 +139,9 @@ input:hover {
   }
 }
 .bottom {
-  padding: 0;
+  padding: 10px;
   border: 0;
-  margin-left: 15px;
+  margin-left: 20px;
 
   width: fit-content;
   height: fit-content;
@@ -156,13 +153,17 @@ input:hover {
     margin: 0;
   }
 }
+
 @media (max-width: 768px) {
   .container {
-    position: relative;
-    height: 100%;
+    height: 100vh;
+    position: absolute;
     width: 20%;
     font-size: small;
     overflow: visible;
+  }
+  .header {
+    overflow: auto;
   }
   .title {
     flex-direction: column;
