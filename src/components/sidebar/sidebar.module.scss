@@ -3,9 +3,9 @@ $color-text: #ecf0f1;
 $sidebar-background-color: #d3d7ed;
 .container {
   background-color: $sidebar-background-color;
-  width: 250px;
+  width: 23%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
 
   display: flex;
 
@@ -15,11 +15,11 @@ $sidebar-background-color: #d3d7ed;
 }
 .containerHidden {
   background-color: $sidebar-background-color;
-  width: 250px;
+  width: 23%;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
+  position: fixed;
   display: flex;
   transform: translateX(-100%);
   transition: all 500ms ease-in-out;
@@ -63,23 +63,24 @@ $sidebar-background-color: #d3d7ed;
     top: 90%;
   }
 }
+
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 77%;
-  margin: 10px;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  height: 70%;
   margin-left: 20px;
   padding: 0;
-  overflow: auto;
-  overflow-x: scroll;
-  overflow-x: hidden;
+  overflow-wrap: break-word;
+  white-space: normal;
 
   & dt,
   p {
     font-weight: bold;
     display: block;
     padding: 10px 10px;
+    overflow-wrap: break-word;
   }
   & dd {
     margin-left: 0;
@@ -88,19 +89,22 @@ $sidebar-background-color: #d3d7ed;
   }
 }
 
+.form {
+  width: 100%;
+  margin: -20px;
+}
 input {
   align-self: center;
   position: relative;
-  display: inline-block;
   text-align: center;
   text-transform: uppercase;
-  padding: 5px 10px;
-  margin: 20px 15px;
-  font-size: 70%;
+  padding: 10px 10px;
+  margin-left: 20px;
+  font-size: 80%;
   font-weight: 200;
   border-radius: 15px;
   transition: 0.5s;
-  border: 2px solid $color-button-red;
+  border: 5px solid $color-button-red;
   color: $color-button-red;
 
   background-color: $sidebar-background-color;
@@ -122,19 +126,17 @@ input:hover {
 
 .title {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
 
   & p {
     align-self: center;
     font-size: larger;
-    padding: 5px;
-
+    padding: 3px;
+    display: block;
+    overflow: auto;
     height: fit-content;
   }
   & img {
-    width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 50%;
   }
 }
@@ -142,7 +144,6 @@ input:hover {
   padding: 10px;
   border: 0;
   margin-left: 20px;
-
   width: fit-content;
   height: fit-content;
   & img {
@@ -154,7 +155,7 @@ input:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .container {
     height: 100vh;
     position: absolute;
@@ -173,12 +174,15 @@ input:hover {
     }
     & img {
       align-self: center;
-      width: 50%;
-      height: 50%;
+      height: auto;
     }
   }
-  .input {
+  input {
     overflow-y: visible;
-    position: absolute;
+    position: relative;
+  }
+  .form {
+    width: 100%;
+    margin: -20px;
   }
 }
