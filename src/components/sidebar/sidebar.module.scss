@@ -6,7 +6,6 @@ $sidebar-background-color: #d3d7ed;
   width: 23%;
   height: 100vh;
   position: fixed;
-
   display: flex;
 
   flex-direction: column;
@@ -129,7 +128,7 @@ input:hover {
 
   & p {
     align-self: center;
-    font-size: larger;
+    font-size: 1.3rem;
     padding: 3px;
     display: block;
     overflow: auto;
@@ -157,14 +156,16 @@ input:hover {
 
 @media (max-width: 1000px) {
   .container {
+    background-color: #bf1110;
     height: 100vh;
     position: absolute;
     width: 20%;
-    font-size: small;
+    font-size: 0.9rem;
     overflow: visible;
   }
   .header {
     overflow: auto;
+    background-color: #bf1110;
   }
   .title {
     flex-direction: column;
