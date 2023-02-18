@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import sidebar from './sidebar.module.scss';
 import lukepicture from '../../images/luke.jpg';
+import { iUser } from '../../interfaces/iuser';
+import { getUser } from '../../services/services';
 
 export function Sidebar() {
   const [sideBar, setSidebar] = useState(true);
+  const [user, setUser] = useState<iUser>({
+    name: '',
+    surname: '',
+    position: '',
+    email: '',
+    phone: '',
+    vacationDays: 0,
+  });
+
+  useEffect(() => {
+    getUser().then((data) => setUser(data));
+  }, []);
 
   const toggleSidebar = () => {
     setSidebar((prevState) => !prevState);
   };
-
+  {
+    console.log(user);
+  }
   return (
     <div className={sideBar ? sidebar.container : sidebar.containerHidden}>
       <div className={sidebar.toggleBtn} onClick={toggleSidebar}>
@@ -19,21 +35,19 @@ export function Sidebar() {
       <header className={sidebar.header}>
         <div className={sidebar.title}>
           <img src={lukepicture} alt="user" />
-          <p> Luke </p>
-          <p>Skywalker</p>
+          <p>{user.name}</p>
+          <p>{user.surname}</p>
         </div>
 
         <dl>
-          <dt>Fecha de nacimiento</dt>
-          <dd>09/10/89</dd>
           <dt>Cargo</dt>
-          <dd>.position</dd>
+          <dd>{user.position}</dd>
           <dt>E-mail</dt>
-          <dd>.email</dd>
+          <dd>{user.email}</dd>
           <dt>Teléfono</dt>
-          <dd>.phone</dd>
+          <dd>{user.phone}</dd>
           <dt>Días de vacaciones restantes</dt>
-          <dd>.vacationDays</dd>
+          <dd>{user.vacationDays}</dd>
         </dl>
         <form
           action="mailto:soporte@cloudmanlabs.com"
