@@ -22,9 +22,7 @@ export function Sidebar() {
   const toggleSidebar = () => {
     setSidebar((prevState) => !prevState);
   };
-  {
-    console.log(user);
-  }
+
   return (
     <div className={sideBar ? sidebar.container : sidebar.containerHidden}>
       <div className={sidebar.toggleBtn} onClick={toggleSidebar}>
@@ -49,17 +47,19 @@ export function Sidebar() {
           <dt>Días de vacaciones restantes</dt>
           <dd>{user.vacationDays}</dd>
         </dl>
-        <form
-          action="mailto:soporte@cloudmanlabs.com"
-          method="get"
-          target="_blank"
-        >
-          <input
-            type="submit"
-            name="submit"
-            value=" Informar de un error"
-          ></input>
-        </form>
+        <div className={sidebar.form}>
+          <form
+            action="mailto:soporte@cloudmanlabs.com"
+            method="get"
+            target="_blank"
+          >
+            <input
+              type="submit"
+              name="submit"
+              value=" Informar de un error"
+            ></input>
+          </form>
+        </div>
       </header>
       <div className={sidebar.bottom}>
         <img
