@@ -1,3 +1,6 @@
+$disabled-Day: #b7b2b2;
+$actual-Day: #ffcc00ba;
+
 .container {
   display: flex;
   overflow: auto;
@@ -42,10 +45,6 @@
   & button:hover {
     background-color: rgba(229, 57, 255, 0.844);
   }
-  & button:nth-child(1) {
-    margin-right: -600px;
-    background-color: rgb(70, 129, 182);
-  }
 }
 
 .calendar {
@@ -76,6 +75,9 @@
 .dayName {
   font-weight: 600;
 }
+.disabledDay {
+  color: $disabled-Day;
+}
 
 .dayNumber {
   margin-top: 10px;
@@ -100,13 +102,8 @@
   & li:hover::before {
     background: #ebebeb;
   }
-}
 
-.calendar-day--today {
-  background-color: #ffcc00;
-  color: #fff;
-}
-
-.calendar-day--selected {
-  color: #fff;
+  & li.actualDay::before {
+    background: $actual-Day;
+  }
 }
