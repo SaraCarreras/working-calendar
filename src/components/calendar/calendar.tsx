@@ -23,7 +23,7 @@ export function Calendar() {
           </button>
         </div>
         <div className={calendar.calendarBody}>
-          <ul className={calendar.weekDays}>
+          <ul className={calendar.dayName}>
             <li>Lun</li>
             <li>Mar</li>
             <li>Mié</li>
@@ -32,7 +32,11 @@ export function Calendar() {
             <li>Sab</li>
             <li>Dom</li>
           </ul>
-          <ul className="days">
+          <ul className={calendar.dayNumber}>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
             <li>1</li>
             <li>2</li>
             <li>3</li>
@@ -53,6 +57,17 @@ export function Calendar() {
             <li>19</li>
             <li>20</li>
             <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li>1</li>
           </ul>
         </div>
       </div>
