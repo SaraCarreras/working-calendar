@@ -1,3 +1,5 @@
+$disabled-Day: #b7b2b2;
+$actual-Day: #ffcc00ba;
 .container {
   display: flex;
   overflow: auto;
@@ -76,6 +78,9 @@
 .dayName {
   font-weight: 600;
 }
+.disabledDay {
+  color: $disabled-Day;
+}
 
 .dayNumber {
   margin-top: 10px;
@@ -100,13 +105,8 @@
   & li:hover::before {
     background: #ebebeb;
   }
-}
 
-.calendar-day--today {
-  background-color: #ffcc00;
-  color: #fff;
-}
-
-.calendar-day--selected {
-  color: #fff;
+  & li.actualDay::before {
+    background: $actual-Day;
+  }
 }

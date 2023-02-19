@@ -33,9 +33,9 @@ export function Calendar() {
             <li>Dom</li>
           </ul>
           <ul className={calendar.dayNumber}>
-            <li>28</li>
-            <li>29</li>
-            <li>30</li>
+            <li className={calendar.disabledDay}>28</li>
+            <li className={calendar.disabledDay}>29</li>
+            <li className={calendar.disabledDay}>30</li>
             <li>31</li>
             <li>1</li>
             <li>2</li>
@@ -47,7 +47,7 @@ export function Calendar() {
             <li>9</li>
             <li>10</li>
             <li>11</li>
-            <li>12</li>
+            <li className={calendar.actualDay}>12</li>
             <li>13</li>
             <li>14</li>
             <li>15</li>
@@ -67,7 +67,7 @@ export function Calendar() {
             <li>29</li>
             <li>30</li>
             <li>31</li>
-            <li>1</li>
+            <li className={calendar.disabledDay}>1</li>
           </ul>
         </div>
       </div>
