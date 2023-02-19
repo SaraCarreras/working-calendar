@@ -1,5 +1,6 @@
 $disabled-Day: #b7b2b2;
 $actual-Day: #ffcc00ba;
+
 .container {
   display: flex;
   overflow: auto;
@@ -43,10 +44,6 @@ $actual-Day: #ffcc00ba;
   }
   & button:hover {
     background-color: rgba(229, 57, 255, 0.844);
-  }
-  & button:nth-child(1) {
-    margin-right: -600px;
-    background-color: rgb(70, 129, 182);
   }
 }
 
