@@ -8,18 +8,20 @@ import {
 import { CalendarBody } from '../calendarBody/calendarBody';
 
 export function Calendar() {
-  const [date, setDate] = useState(new Date());
+  const actualDate: Date = new Date();
+  const [date, setDate] = useState(actualDate);
 
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
   }
+  console.log(date);
 
   function nextMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   }
 
   useEffect(() => {
-    console.log(date);
+    //console.log(date);
   }, [date]);
 
   return (
@@ -29,14 +31,12 @@ export function Calendar() {
           <button id="prev" onClick={prevMonth}>
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
-          <p>
-            {date.toLocaleString('default', { month: 'long', year: 'numeric' })}
-          </p>
+          <p>{date.toLocaleString('es', { month: 'long', year: 'numeric' })}</p>
           <button id="next" onClick={nextMonth}>
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
-        <CalendarBody />
+        <CalendarBody date={date} />
       </div>
     </div>
   );
