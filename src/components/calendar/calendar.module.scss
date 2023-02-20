@@ -1,10 +1,15 @@
-$disabled-Day: #b7b2b2;
-$actual-Day: #ffcc00ba;
+$disabled-day: #b7b2b2;
+$actual-day: #ffcc00ba;
+$header-olor: aliceblue;
+$button-color-inactive: rgba(229, 57, 255, 0.505);
+$button-color-hover: rgba(229, 57, 255, 0.844);
+$black-color: #333;
+$weekdays-color: #51e9c3;
+$empty-cell-color: #eeeaea;
 
 .container {
   display: flex;
   overflow: auto;
-
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -15,7 +20,7 @@ $actual-Day: #ffcc00ba;
 .header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: aliceblue;
+  background-color: $header-olor;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,8 +33,8 @@ $actual-Day: #ffcc00ba;
 
   & button {
     z-index: 1;
-    color: rgb(17, 16, 16);
-    background-color: rgba(229, 57, 255, 0.505);
+    color: $black-color;
+    background-color: $button-color-inactive;
     width: 35px;
     height: 35px;
     border: none;
@@ -42,23 +47,34 @@ $actual-Day: #ffcc00ba;
     cursor: pointer;
     line-height: 30px;
   }
+
   & button:hover {
-    background-color: rgba(229, 57, 255, 0.844);
+    background-color: $button-color-hover;
   }
 }
 
 .calendar {
-  border: 3px solid #333;
+  border: 3px solid $black-color;
   border-radius: 10px;
+  width: 400px;
+  height: 400px;
 }
+
 .calendar ul {
   display: flex;
   list-style: none;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  padding-bottom: 6px;
   text-align: center;
+  flex-direction: row;
+
   & li {
     width: calc(100% / 7);
     position: relative;
+    background-color: $weekdays-color;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
   }
 }
 
@@ -72,39 +88,26 @@ $actual-Day: #ffcc00ba;
   }
 }
 
-.dayName {
-  font-weight: 600;
+.daysContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
 }
-.disabledDay {
-  color: $disabled-Day;
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  flex-basis: 100%;
 }
 
-.dayNumber {
-  margin-top: 10px;
-  z-index: 1;
-
-  & li {
-    cursor: pointer;
-    margin-top: 20px;
-  }
-
-  & li:before {
-    position: absolute;
-    content: '';
-    height: 40px;
-    width: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-    z-index: -1;
-  }
-  & li:hover::before {
-    background: #ebebeb;
-  }
-
-  & li.actualDay::before {
-    background: $actual-Day;
-  }
+.emptyCell {
+  background-color: $empty-cell-color;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: 6px;
 }
