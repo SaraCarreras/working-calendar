@@ -1,27 +1,58 @@
 import React from 'react';
-import { useMonthDays } from '../../hooks/useMonthDays';
 import calendarBody from '../calendar/calendar.module.scss';
+import { CalendarBodyProps } from '../../interfaces/calendarBodyProps';
+import { Day } from '../day/day';
 
-export function CalendarBody() {
-  const lastday = useMonthDays().lastDayOfMonth;
-  const allDays = useMonthDays().days;
-  //console.log(allDays);
+export function CalendarBody({ date }: CalendarBodyProps) {
+  const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sab', 'Dom'];
+
+  //creating emptyCells to disabled days
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  //it needs to be -1 bcs first day of week is Sun = 0
+  const firstDayOfWeek = firstDayOfMonth.getDay() - 1;
+  const emptyCells = Array.from({ length: firstDayOfWeek }, (_, i) => i);
+  const daysInMonth = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
+
+  const days = Array.from(
+    { length: daysInMonth },
+    (_, i) => new Date(date.getFullYear(), date.getMonth(), i + 1)
+  );
+
   return (
     <div className={calendarBody.calendarBody}>
       <ul className={calendarBody.dayName}>
-        <li>Lun</li>
-        <li>Mar</li>
-        <li>Mié</li>
-        <li>Jue</li>
-        <li>Vie</li>
-        <li>Sab</li>
-        <li>Dom</li>
+        {weekDays.map((weekDay) => (
+          <li key={weekDay}>{weekDay}</li>
+        ))}
       </ul>
-      <ul className={calendarBody.dayNumber}>
-        {allDays.map((day) => {
-          return <li key={day}>{day}</li>;
-        })}
-      </ul>
+      <div className={calendarBody.daysContainer}>
+        {[
+          ...Array(Math.ceil((emptyCells.length + daysInMonth) / 7)).keys(),
+        ].map((rowIndex) => (
+          <div key={rowIndex} className={calendarBody.row}>
+            {[...Array(7).keys()].map((colIndex) => {
+              const dayIndex = rowIndex * 7 + colIndex - emptyCells.length;
+              const day = days[dayIndex];
+              return day ? (
+                <Day
+                  key={day.toISOString()}
+                  date={day}
+                  isCurrentMonth={day.getMonth() === date.getMonth()}
+                />
+              ) : (
+                <div
+                  key={`empty-cell-${colIndex}`}
+                  className={calendarBody.emptyCell}
+                />
+              );
+            })}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
