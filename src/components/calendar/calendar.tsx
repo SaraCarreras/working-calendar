@@ -24,7 +24,6 @@ export function Calendar() {
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
   }
-  console.log(date);
 
   function nextMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
