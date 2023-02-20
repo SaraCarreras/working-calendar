@@ -15,6 +15,7 @@ $empty-cell-color: #eeeaea;
   align-items: center;
   min-height: 100vh;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .header {
@@ -111,3 +112,5 @@ $empty-cell-color: #eeeaea;
   margin-right: 5px;
   margin-left: 6px;
 }
+
+//holidayList distribution

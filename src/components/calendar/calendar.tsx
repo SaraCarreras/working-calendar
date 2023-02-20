@@ -6,6 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { CalendarBody } from '../calendarBody/calendarBody';
+import { HolidayList } from '../holidayList/holidayList';
 
 export function Calendar() {
   const actualDate: Date = new Date();
@@ -37,6 +38,9 @@ export function Calendar() {
           </button>
         </div>
         <CalendarBody date={date} />
+      </div>
+      <div className={calendar.holiDayListContainer}>
+        <HolidayList />
       </div>
     </div>
   );
