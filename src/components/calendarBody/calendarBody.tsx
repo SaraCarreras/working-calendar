@@ -1,6 +1,6 @@
 import React from 'react';
 import calendarBody from '../calendar/calendar.module.scss';
-import { CalendarBodyProps } from '../../interfaces/calendarBody';
+import { CalendarBodyProps } from '../../interfaces/calendarBodyProps';
 import { Day } from '../day/day';
 
 export function CalendarBody({ date }: CalendarBodyProps) {

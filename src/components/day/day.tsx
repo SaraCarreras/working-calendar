@@ -1,5 +1,5 @@
 import React from 'react';
-import { DayProps } from '../../interfaces/calendarBody';
+import { DayProps } from '../../interfaces/calendarBodyProps';
 import day from './day.module.scss';
 
 export function Day({ date, isCurrentMonth }: DayProps) {
