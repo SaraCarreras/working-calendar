@@ -18,7 +18,7 @@ $actual-Day: #ffcc00ba;
   background-color: aliceblue;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 20px 30px;
 
   & p {
@@ -87,6 +87,7 @@ $actual-Day: #ffcc00ba;
     cursor: pointer;
     margin-top: 20px;
   }
+
   & li:before {
     position: absolute;
     content: '';

@@ -8,46 +8,31 @@ import {
 import { CalendarBody } from '../calendarBody/calendarBody';
 
 export function Calendar() {
-  //-> iniciar lógica . seguir header mes y instalar fontawesome para isBreakOrContinueStatement,
-  //luego mirar lógica crear días y ve rsi los creo directly o en otro el
-  const [month, setMonth] = useState('');
-  const header = document.querySelector(`.${calendar.header}`);
-  const headerMonth = header?.querySelector('p');
-  console.log(headerMonth);
-  //getting current month
-  const date = new Date();
-  const currentMonth = date.getMonth();
-  console.log(currentMonth);
+  const [date, setDate] = useState(new Date());
 
-  //transforming currentMonth from number to Month's names
-  const months: Array<string> = [
-    'Enero',
-    'Febrero',
-    'Marzo',
-    'Abril',
-    'Mayo',
-    'Junio',
-    'Julio',
-    'Agosto',
-    'Septiembre',
-    'Octubre',
-    'Noviembre',
-    'Diciembre',
-  ];
+  function prevMonth() {
+    setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
+  }
+
+  function nextMonth() {
+    setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
+  }
 
   useEffect(() => {
-    currentMonth ? setMonth(months[currentMonth]) : '';
-  }, []);
+    console.log(date);
+  }, [date]);
 
   return (
     <div className={calendar.container}>
       <div className={calendar.calendar}>
         <div className={calendar.header}>
-          <p>{month} 2023</p>
-          <button>
+          <button id="prev" onClick={prevMonth}>
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
-          <button>
+          <p>
+            {date.toLocaleString('default', { month: 'long', year: 'numeric' })}
+          </p>
+          <button id="next" onClick={nextMonth}>
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
