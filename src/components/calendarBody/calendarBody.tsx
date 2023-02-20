@@ -1,9 +1,9 @@
 import React from 'react';
 import calendarBody from '../calendar/calendar.module.scss';
-import { CalendarBodyProps } from '../../interfaces/calendarBodyProps';
+import { CalendarBodyProps } from '../../interfaces/typeProps';
 import { Day } from '../day/day';
 
-export function CalendarBody({ date }: CalendarBodyProps) {
+export function CalendarBody({ date, holidaysList }: CalendarBodyProps) {
   const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sab', 'Dom'];
 
   //creating emptyCells to disabled days
@@ -42,6 +42,7 @@ export function CalendarBody({ date }: CalendarBodyProps) {
                   key={day.toISOString()}
                   date={day}
                   isCurrentMonth={day.getMonth() === date.getMonth()}
+                  holidaysList={holidaysList}
                 />
               ) : (
                 <div

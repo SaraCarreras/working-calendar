@@ -45,7 +45,7 @@ export function Calendar() {
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
-        <CalendarBody date={date} />
+        <CalendarBody date={date} holidaysList={holidaysList} />
       </div>
       <div className={calendar.holiDayListContainer}>
         <HolidayList holidaysList={holidaysList} />
