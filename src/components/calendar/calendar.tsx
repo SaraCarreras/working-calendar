@@ -26,12 +26,12 @@ export function Calendar() {
     <div className={calendar.container}>
       <div className={calendar.calendar}>
         <div className={calendar.header}>
-          <p>
-            {date.toLocaleString('default', { month: 'long', year: 'numeric' })}
-          </p>
           <button id="prev" onClick={prevMonth}>
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
+          <p>
+            {date.toLocaleString('default', { month: 'long', year: 'numeric' })}
+          </p>
           <button id="next" onClick={nextMonth}>
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
