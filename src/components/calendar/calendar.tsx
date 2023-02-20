@@ -7,10 +7,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { CalendarBody } from '../calendarBody/calendarBody';
 import { HolidayList } from '../holidayList/holidayList';
+import { getHolidays } from '../../services/services';
+import { iHolidays } from '../../interfaces/iHolidays';
 
 export function Calendar() {
   const actualDate: Date = new Date();
   const [date, setDate] = useState(actualDate);
+  const [holidaysList, setHolidaysList] = useState<Array<iHolidays>>([
+    {
+      day: '',
+      type: '',
+      description: '',
+    },
+  ]);
 
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
@@ -22,7 +31,7 @@ export function Calendar() {
   }
 
   useEffect(() => {
-    //console.log(date);
+    getHolidays().then(setHolidaysList);
   }, [date]);
 
   return (
@@ -40,7 +49,7 @@ export function Calendar() {
         <CalendarBody date={date} />
       </div>
       <div className={calendar.holiDayListContainer}>
-        <HolidayList />
+        <HolidayList holidaysList={holidaysList} />
       </div>
     </div>
   );
