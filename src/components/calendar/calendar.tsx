@@ -6,22 +6,31 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { CalendarBody } from '../calendarBody/calendarBody';
+import { HolidayList } from '../holidayList/holidayList';
+import { getHolidays } from '../../services/services';
+import { iHolidays } from '../../interfaces/iHolidays';
 
 export function Calendar() {
   const actualDate: Date = new Date();
   const [date, setDate] = useState(actualDate);
+  const [holidaysList, setHolidaysList] = useState<Array<iHolidays>>([
+    {
+      day: '',
+      type: '',
+      description: '',
+    },
+  ]);
 
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
   }
-  console.log(date);
 
   function nextMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   }
 
   useEffect(() => {
-    //console.log(date);
+    getHolidays().then(setHolidaysList);
   }, [date]);
 
   return (
@@ -36,7 +45,10 @@ export function Calendar() {
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
-        <CalendarBody date={date} />
+        <CalendarBody date={date} holidaysList={holidaysList} />
+      </div>
+      <div className={calendar.holiDayListContainer}>
+        <HolidayList holidaysList={holidaysList} />
       </div>
     </div>
   );

@@ -1,0 +1,33 @@
+.container {
+  border: 3px solid black;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+
+  margin-left: 50px;
+  padding: 20px;
+
+  & h2 {
+    padding-bottom: 20px;
+  }
+}
+
+.type {
+  font-style: italic;
+}
+.day {
+  font-weight: bold;
+  & span {
+    font-weight: normal;
+  }
+}
+.local::marker {
+  color: rgb(0, 255, 68);
+}
+
+.national::marker {
+  color: red;
+}
+.regional::marker {
+  color: rgb(87, 96, 228);
+}
