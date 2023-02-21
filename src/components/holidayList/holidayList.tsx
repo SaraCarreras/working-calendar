@@ -38,7 +38,7 @@ export function HolidayList({ holidaysList }: HolidayListProps) {
           return (
             <li key={holiday.day} className={holidayTypeClass}>
               <p className={holidayList.day}>
-                {`${dayNumber} de ${monthName}-`}{' '}
+                {`${dayNumber} de ${monthName}-`}
                 <span className={holidayList.description}>
                   {holiday.description}
                 </span>

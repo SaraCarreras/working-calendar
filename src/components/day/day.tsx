@@ -13,7 +13,9 @@ export function Day({ date, isCurrentMonth, holidaysList }: DayProps) {
   //I need to transform it again substracting 2 years to the comparisson date to get true
   const isoDate = date.toISOString();
   const year = parseInt(isoDate.split('-')[0]);
+
   const newDate = new Date(date);
+  //console.log(date);
   newDate.setFullYear(year - 2);
   const newIsoDate = newDate.toISOString().split('T')[0];
 
