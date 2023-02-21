@@ -9,13 +9,22 @@ $empty-cell-color: #eeeaea;
 
 .container {
   display: flex;
-
-  margin: auto;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   width: 100%;
   flex-wrap: wrap;
+  transition: 0.5s ease-in-out;
+}
+.sidebarExpanded {
+  transition: 0.5s ease-in-out;
+  transform: translateX(5%);
+}
+
+.containerSideBarOpen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
@@ -112,5 +121,3 @@ $empty-cell-color: #eeeaea;
   margin-right: 5px;
   margin-left: 6px;
 }
-
-//holidayList distribution

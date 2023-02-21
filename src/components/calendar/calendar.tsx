@@ -10,7 +10,15 @@ import { HolidayList } from '../holidayList/holidayList';
 import { getHolidays } from '../../services/services';
 import { iHolidays } from '../../interfaces/iHolidays';
 
-export function Calendar() {
+interface CalendarProps {
+  showSideBar: boolean;
+}
+
+export function Calendar({ showSideBar }: CalendarProps) {
+  const containerMargins = showSideBar
+    ? { marginLeft: '23%' }
+    : { marginLeft: 0 };
+
   const actualDate: Date = new Date();
   const [date, setDate] = useState(actualDate);
   const [holidaysList, setHolidaysList] = useState<Array<iHolidays>>([
@@ -34,7 +42,12 @@ export function Calendar() {
   }, [date]);
 
   return (
-    <div className={calendar.container}>
+    <div
+      className={`${calendar.container} ${
+        showSideBar ? calendar.sidebarExpanded : calendar.container
+      }`}
+      style={containerMargins}
+    >
       <div className={calendar.calendar}>
         <div className={calendar.header}>
           <button id="prev" onClick={prevMonth}>
