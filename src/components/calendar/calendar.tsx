@@ -9,10 +9,7 @@ import { CalendarBody } from '../calendarBody/calendarBody';
 import { HolidayList } from '../holidayList/holidayList';
 import { getHolidays } from '../../services/services';
 import { iHolidays } from '../../interfaces/iHolidays';
-
-interface CalendarProps {
-  showSideBar: boolean;
-}
+import { CalendarProps } from '../../interfaces/typeProps';
 
 export function Calendar({ showSideBar }: CalendarProps) {
   const containerMargins = showSideBar

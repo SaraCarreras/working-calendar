@@ -10,3 +10,7 @@ export type DayProps = {
   isCurrentMonth: boolean;
   holidaysList: iHolidays[];
 };
+
+export interface CalendarProps {
+  showSideBar: boolean;
+}
