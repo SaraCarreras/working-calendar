@@ -1,9 +1,9 @@
 $color-button-red: #bf1110;
 $color-text: #ecf0f1;
-$sidebar-background-color: #d3d7ed;
+$sidebar-background-color: #aeadf4;
 .container {
   background-color: $sidebar-background-color;
-  width: 23%;
+  width: 20%;
   height: 100vh;
   position: fixed;
   display: flex;
@@ -12,62 +12,12 @@ $sidebar-background-color: #d3d7ed;
   justify-content: space-between;
   transition: all 500ms ease-in-out;
   transform: translateX(-100%);
-
+  padding-bottom: 20px;
   &.show {
     transform: translateX(-1%);
   }
 }
-/*.containerHidden {
-  background-color: $sidebar-background-color;
-  width: 23%;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  position: fixed;
-  display: flex;
-  transform: translateX(-100%);
-  transition: all 500ms ease-in-out;
-}
-.toggleBtn:active {
-  & span:nth-child(1) {
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-  }
-  & span:nth-child(2) {
-    display: none;
-  }
-  & span:nth-child(3) {
-    top: 50%;
-    transform: translateY(-50%) rotate(-45deg);
-  }
-}
 
-.toggleBtn {
-  position: absolute;
-  top: 10px;
-  right: -40px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  & span {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #111;
-    transform: translateY(-50%);
-    transition: all 100ms ease;
-  }
-  & span:nth-child(1) {
-    top: 10%;
-  }
-  & span:nth-child(2) {
-    top: 50%;
-  }
-  & span:nth-child(3) {
-    top: 90%;
-  }
-}
-*/
 .header {
   display: flex;
   flex-direction: column;
