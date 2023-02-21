@@ -3,9 +3,11 @@ import sidebar from './sidebar.module.scss';
 import lukepicture from '../../images/luke.jpg';
 import { iUser } from '../../interfaces/iuser';
 import { getUser } from '../../services/services';
+interface SidebarProps {
+  show: boolean;
+}
 
-export function Sidebar() {
-  const [sideBar, setSidebar] = useState(true);
+export function Sidebar({ show }: SidebarProps) {
   const [user, setUser] = useState<iUser>({
     name: '',
     surname: '',
@@ -19,17 +21,8 @@ export function Sidebar() {
     getUser().then((data) => setUser(data));
   }, []);
 
-  const toggleSidebar = () => {
-    setSidebar((prevState) => !prevState);
-  };
-
   return (
-    <div className={sideBar ? sidebar.container : sidebar.containerHidden}>
-      <div className={sidebar.toggleBtn} onClick={toggleSidebar}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div className={`${sidebar.container} ${show ? sidebar.show : ''}`}>
       <header className={sidebar.header}>
         <div className={sidebar.title}>
           <img src={lukepicture} alt="user" />
