@@ -1,3 +1,8 @@
+$hover-color: #f5f5f5;
+$regional-color: #7b84ffe6;
+$national-color: rgba(255, 0, 0, 0.503);
+$local-color: rgb(127, 250, 160);
+
 .dayContainer {
   width: calc(100% / 7);
   height: 100%;
@@ -20,18 +25,38 @@
     background-color: #f5f5f5;
   }
   &.local {
-    background-color: rgb(127, 250, 160);
+    background-color: $local-color;
+    &:hover {
+      background-color: #f5f5f5;
+      color: rgb(78, 194, 109);
+      font-weight: 600;
+    }
   }
 
   &.national {
-    background-color: rgba(255, 0, 0, 0.503);
+    background-color: $national-color;
+    &:hover {
+      background-color: #f5f5f5;
+      color: rgb(255, 0, 0);
+      font-weight: 600;
+    }
   }
 
   &.regional {
-    background-color: rgba(123, 132, 255, 0.901);
+    background-color: $regional-color;
+    &:hover {
+      background-color: #f5f5f5;
+      color: #7b84ff;
+      font-weight: 600;
+    }
   }
 
   &.today {
     background-color: #ffff80;
+    &:hover {
+      background-color: #f5f5f5;
+      color: #bcbc33;
+      font-weight: 600;
+    }
   }
 }
