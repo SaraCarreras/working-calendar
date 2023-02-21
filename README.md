@@ -7,9 +7,11 @@ This App it's been made with **React, TypeScript and Sass**. <a href="https://re
 ### How it works
 
 Once you enter, you see the **landing page** with a **sidebar** on the left with all the user's information.
+
 ![Landing page](https://github.com/SaraCarreras/working-calendar/blob/main/src/images/landing-page.jpg)
 
 The **calendar** at the center, where you can navegate throug pressing left and right buttons.
+
 ![Calendar](https://github.com/SaraCarreras/working-calendar/blob/main/src/images/calendar.jpg)
 
 The calendar shows the festive days:
@@ -21,4 +23,5 @@ The calendar shows the festive days:
 On the right you can see a list with all the holidays of the year.
 
 And **finally** you can toggle the burguer menu and the sidebar will be hidden and both calendar and list will accomodate:
+
 ![onToggle](https://github.com/SaraCarreras/working-calendar/blob/main/src/images/ontoggle.jpg)
