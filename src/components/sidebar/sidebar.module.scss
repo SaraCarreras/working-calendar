@@ -3,7 +3,7 @@ $color-text: #ecf0f1;
 $sidebar-background-color: #aeadf4;
 .container {
   background-color: $sidebar-background-color;
-  width: 20%;
+  width: 250px;
   height: 100vh;
   position: fixed;
   display: flex;
@@ -14,7 +14,7 @@ $sidebar-background-color: #aeadf4;
   transform: translateX(-100%);
   padding-bottom: 20px;
   &.show {
-    transform: translateX(-1%);
+    transform: translateX(0%);
   }
 }
 
@@ -111,7 +111,6 @@ input:hover {
 
 @media (max-width: 1000px) {
   .container {
-    background-color: #bf1110;
     height: 100vh;
     position: absolute;
     width: 20%;
@@ -120,7 +119,6 @@ input:hover {
   }
   .header {
     overflow: auto;
-    background-color: #bf1110;
   }
   .title {
     flex-direction: column;
