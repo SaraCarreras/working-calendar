@@ -18,7 +18,7 @@ $empty-cell-color: #eeeaea;
 }
 .sidebarExpanded {
   transition: 0.5s ease-in-out;
-  transform: translateX(5%);
+  transform: translateX(0%);
 }
 
 .containerSideBarOpen {
@@ -66,8 +66,9 @@ $empty-cell-color: #eeeaea;
 .calendar {
   border: 3px solid $black-color;
   border-radius: 10px;
-  width: 400px;
+  width: 450px;
   height: 400px;
+  align-self: center;
 }
 
 .calendar ul {

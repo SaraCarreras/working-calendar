@@ -21,7 +21,7 @@
 
 .toggleBtnExpanded {
   transition: transform 500ms ease-in-out;
-  transform: translateX(1050%);
+  transform: translateX(850%);
   z-index: 3;
 }
 
@@ -50,5 +50,21 @@
   }
   & span:nth-child(3) {
     top: 90%;
+  }
+}
+@media (max-width: 1000px) {
+  .toggleBtnExpanded {
+    transform: translateX(650%);
+  }
+}
+@media (max-width: 900px) {
+  .toggleBtnExpanded {
+    transform: translateX(600%);
+  }
+}
+@media (max-width: 800px) {
+  .toggleBtnExpanded {
+    background-color: aquamarine;
+    transform: translateX(500%);
   }
 }
