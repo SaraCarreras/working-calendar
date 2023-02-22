@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import calendar from './calendar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -26,7 +26,9 @@ export function Calendar({ showSideBar }: CalendarProps) {
     },
   ]);
 
-  getHolidays().then(setHolidaysList);
+  useEffect(() => {
+    getHolidays().then(setHolidaysList);
+  }, []);
 
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
