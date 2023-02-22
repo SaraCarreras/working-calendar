@@ -2,7 +2,7 @@ import React from 'react';
 import { DayProps } from '../../interfaces/typeProps';
 import day from './day.module.scss';
 
-export function Day({ date, isCurrentMonth, holidaysList }: DayProps) {
+export function Day({ date, holidaysList }: DayProps) {
   //conditional compares actual date with date shown on calendar
   const isToday =
     date.getFullYear() === new Date().getFullYear() &&
@@ -25,11 +25,7 @@ export function Day({ date, isCurrentMonth, holidaysList }: DayProps) {
 
   return (
     <div className={day.dayContainer}>
-      <div
-        className={`${day.day} ${isCurrentMonth ? '' : day.disabledDay} ${
-          isToday ? day.today : ''
-        } ${typeClass}`}
-      >
+      <div className={`${day.day} ${isToday ? day.today : ''} ${typeClass}`}>
         {date.getDate()}
       </div>
     </div>

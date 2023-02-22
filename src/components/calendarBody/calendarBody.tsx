@@ -44,7 +44,6 @@ export function CalendarBody({ date, holidaysList }: CalendarBodyProps) {
                 <Day
                   key={day.toISOString()}
                   date={day}
-                  isCurrentMonth={day.getMonth() === date.getMonth()}
                   holidaysList={holidaysList}
                 />
               ) : (
