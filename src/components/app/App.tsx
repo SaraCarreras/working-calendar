@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className={app.container}>
-      <Sidebar show={showSideBar} />
+      <Sidebar showSideBar={showSideBar} />
       <div
         className={`${app.toggleBtn} ${
           showSideBar ? app.toggleBtnExpanded : ''

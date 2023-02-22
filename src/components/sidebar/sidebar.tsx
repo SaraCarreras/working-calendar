@@ -4,10 +4,10 @@ import lukepicture from '../../images/luke.jpg';
 import { iUser } from '../../interfaces/iuser';
 import { getUser } from '../../services/services';
 interface SidebarProps {
-  show: boolean;
+  showSideBar: boolean;
 }
 
-export function Sidebar({ show }: SidebarProps) {
+export function Sidebar({ showSideBar }: SidebarProps) {
   const [user, setUser] = useState<iUser>({
     name: '',
     surname: '',
@@ -22,7 +22,7 @@ export function Sidebar({ show }: SidebarProps) {
   }, []);
 
   return (
-    <div className={`${sidebar.container} ${show ? sidebar.show : ''}`}>
+    <div className={`${sidebar.container} ${showSideBar ? sidebar.show : ''}`}>
       <header className={sidebar.header}>
         <div className={sidebar.title}>
           <img src={lukepicture} alt="user" />
