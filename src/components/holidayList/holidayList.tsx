@@ -22,10 +22,11 @@ export function HolidayList({ holidaysList }: HolidayListProps) {
       <h2>Festivos 2023</h2>
       <ul>
         {holidaysList.map((holiday) => {
+          //converting string to new Date
           const fecha = new Date(Date.parse(holiday.day));
-
           const monthName = meses[fecha.getMonth()];
           const dayNumber = fecha.getDate();
+
           let holidayTypeClass = '';
           if (holiday.type === 'national') {
             holidayTypeClass = holidayList.national;
