@@ -26,6 +26,10 @@ export function Calendar({ showSideBar }: CalendarProps) {
     },
   ]);
 
+  useEffect(() => {
+    getHolidays().then(setHolidaysList);
+  }, []);
+
   function prevMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
   }
@@ -33,10 +37,6 @@ export function Calendar({ showSideBar }: CalendarProps) {
   function nextMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   }
-
-  useEffect(() => {
-    getHolidays().then(setHolidaysList);
-  }, [date]);
 
   return (
     <div

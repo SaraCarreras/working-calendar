@@ -7,7 +7,6 @@ export type CalendarBodyProps = {
 
 export type DayProps = {
   date: Date;
-  isCurrentMonth: boolean;
   holidaysList: iHolidays[];
 };
 
