@@ -8,18 +8,19 @@ export function CalendarBody({ date, holidaysList }: CalendarBodyProps) {
 
   //creating emptyCells to disabled days
   const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-  console.log(firstDayOfMonth);
+
   //it needs to be -1 bcs first day of week is Sun = 0
   const firstDayOfWeek = firstDayOfMonth.getDay() - 1;
   console.log(firstDayOfWeek);
   const emptyCells = Array.from({ length: firstDayOfWeek }, (_, i) => i);
-  console.log(emptyCells);
+
   const daysInMonth = new Date(
     date.getFullYear(),
     date.getMonth() + 1,
     0
   ).getDate();
 
+  //creating arr of days
   const days = Array.from(
     { length: daysInMonth },
     (_, i) => new Date(date.getFullYear(), date.getMonth(), i + 1)
